@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books/Authors</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+            margin: 10px 0px 0px 0px;
+            padding: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 900px;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .add_author {
+            display:inline-block;
+            background-color:#dddddd;
+            text-align: center;
+            width: 300px;
+            min-height: 275px;
+            border-radius: 10px;
+            padding-bottom: 15px;
+        }
+
+        .author_table {
+            display:inline-block;
+            width: 500px;
+            vertical-align: top;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="add_author">
+        <h1>Add an Author</h1>
+        <form action="/new_author" method="POST">
+            {% csrf_token %}
+        <p>First Name:</p>
+        <input type="text" name="f_name"><br>
+        <p>Last Name:</p>
+        <input type="text" name="l_name"><br>
+        <p>Notes:</p>
+        <input type="textarea" name="notes"><br><br>
+        <input type="submit" value="Add">
+        </form>
+    </div>
+    <div class="author_table">
+            <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for author in all_authors %}
+                    <tr>
+                        <td>{{ author.id }}</td>
+                        <td>{{ author.first_name }} {{ author.last_name }}</td>
+                        <td><a href="/authors/{{ author.id }}">View</a></td>
+                    </tr>
+                    {% endfor %}
+            </table>
+    </div>
+</div>
+    
+    
+</body>
+</html>

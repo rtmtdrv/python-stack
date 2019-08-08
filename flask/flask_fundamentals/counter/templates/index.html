@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Counter</title>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+        background-color: #ccc;
+        width: 300px;
+        min-height: 200px;
+        margin: auto;
+        text-align: center;
+        border-radius: 25px;
+        border: 2px solid gray;
+        margin-top: 30px;
+        padding: 10px 10px 30px 10px;
+    }
+    
+    .container h1 {
+        /* padding-top: 5px; */
+    }
+
+    form {
+        display: inline-block;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Counter</h1>
+        <p>You have visited this page:</p>
+        <h1>{{ session["count"] }} times</h1>
+        <form action="/increment" method="POST">
+        <button>Add 2</button>
+        </form>
+        <form action="/destroy_session" method="POST">
+        <button>Clear</button>
+        </form>
+    </div>
+    
+</body>
+</html>

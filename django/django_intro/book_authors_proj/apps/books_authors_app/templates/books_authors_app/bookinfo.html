@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book Info</title>
+    <style>
+            .container {
+                padding-left:10px;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/">Home</a>
+        <h1>{{ book_info_html.title }}</h1>
+        <h3>ID: {{ book_info_html.id }}</h3>
+        <p>Description:
+            <p><i>{{ book_info_html.desc }}</i></p>
+        </p>
+        <p>Authors:</p>
+            {% for author in book_authors_html %}
+                <ul>
+                    <li>{{ author.first_name }} {{ author.last_name }}</li>
+                </ul>
+            {% endfor %}
+        <form action="/add_author/{{ book_info_html.id }}" method="post">
+            {% csrf_token %}
+            <select name="author" id="add_author">
+                {% for author in all_authors_html %}
+                    <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+                {% endfor %}
+            </select><br><br>
+            <input type="submit" value="add">
+        </form>
+
+
+
+    </div>
+</body>
+</html>

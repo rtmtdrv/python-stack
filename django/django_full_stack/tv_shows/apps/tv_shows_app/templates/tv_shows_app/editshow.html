@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            width: 555px;
+            margin: 0 auto;
+        }
+        div a {
+            float: right;
+        }
+
+        .w3-half {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/shows">Go Back</a> 
+        <h1>Edit Show {{ show_html.id }}</h1>
+        <form action="/shows/{{show_html.id}}/update" method="POST">
+        {% csrf_token %}
+            <p>Title</p>
+            <input type="text" name="title" class="w3-input w3-border" value="{{ show_html.title }}">
+            <p>Network</p>
+            <input type="text" name="network" class="w3-input w3-border" value="{{ show_html.network }}"> 
+            <p>Release Date</p>
+            <input type="date" name="release_date" class="w3-input w3-border" value="{{ release_date_html }}">
+            <p>Description</p>
+            <input type="textarea" name="description" class="w3-input w3-border" value="{{ show_html.description }}">
+            <br>
+            <input type="submit" name="add" value="Update">
+        </form>
+        <a href="/shows/{{show_html.id}}">Go to Show</a> 
+    </div>
+</body>
+</html>

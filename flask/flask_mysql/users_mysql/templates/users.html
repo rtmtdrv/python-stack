@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Users</title>
+    <style>
+
+    body {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    }
+
+    #users {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #users td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #users tr:nth-child(even){background-color: #f2f2f2;}
+
+    #users tr:hover {background-color: #ddd;}
+
+    #users th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            padding-left: 10px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+            }
+    </style>
+</head>
+<body>
+    <h1>All Users</h1>
+    <table id="users">
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        {% for user in all_users %}
+        <tr>
+            <td>{{ user['id'] }}</td>
+            <td>{{ user['first_name'] }} {{ user['last_name'] }}</td>
+            <td>{{ user['email'] }}</td>
+            <td>{{ user['created_at'] }}</td>
+            <td><a href="/user/{{ user['id'] }}">Show</a> | <a href="/user/{{ user['id'] }}/edit">Edit</a> | <a href="/delete/{{ user['id'] }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table><br>
+    <span class="add"><a href="/users/new">Add an New User</a></span>
+</body>
+</html>

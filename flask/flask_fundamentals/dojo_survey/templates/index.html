@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey</title>
+    <style>
+
+    body {
+        /* outline: 1px dotted red; */
+        }
+
+    .container {
+        margin: auto;
+        width: 222px;
+        min-height: 240px;
+        background-color: lightgray;
+        border: 3px solid gray;
+        border-radius: 15px;
+        padding: 20px;
+        /* text-align: center; */
+        display: block;
+    }
+
+    .form {
+        /* text-align: center; */
+        margin: auto;
+        display: block;
+        width: 500px;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <form action="/info" method="post">
+                Your name:<input type="text" name="name">
+                <br>
+                <span>Dojo Location:</span>
+                <select name="location">
+                    <option value="sanjose">San Jose</option>
+                    <option value="Orange County">Orange County</option>
+                    <option value="burbank">Burbank</option>
+                    <option value="Seattle">Seattle</option>
+                </select><br>
+                <span>Favorite Language:</span>
+                <select name="language">
+                        <option value="Python">Python</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C#">C#</option>
+                        <option value="java">Java</option>
+                    </select><br>
+                Comment (optional)<br>
+                <textarea name="message" rows="10" cols="30"></textarea>
+                <br><br>
+            <input type="submit" value="create info">
+            </form> 
+        </div>
+    </div>
+    
+</body>
+</html>

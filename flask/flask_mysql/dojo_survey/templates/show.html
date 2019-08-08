@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Submitted Info</title>
+    <style>
+
+            body {
+                /* outline: 1px dotted red; */
+                }
+        
+            .container {
+                margin: auto;
+                width: 222px;
+                min-height: 240px;
+                background-color: lightgray;
+                border: 3px solid gray;
+                border-radius: 15px;
+                padding: 20px;
+                /* text-align: center; */
+                display: block;
+            }
+        
+            </style>
+</head>
+<body>
+        <div class="container">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <h1>Submitted Info</h1>
+            <p>Name: {{ name_submitted }}</p>
+            <p>Dojo Location: {{ location_submitted }}</p>
+            <p>Favorite Language: {{ language_submitted }}</p>d
+            <p>Comments: {{ comments_submitted }}</p>
+            
+
+        </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show User</title>
+</head>
+<body>
+    <span class="home"><a href="/users">Home</a></span>
+    {% for user in user %}
+    <h1>User ID: {{ user['id'] }}</h1>
+    <p>Full Name: {{ user['first_name'] }} {{ user['last_name'] }}</p>
+    <p>Email: {{ user['email'] }}</p>
+    <p>Created On: {{ user['created_at'] }}</p>
+    <p>Updated On: {{ user['updated_at'] }}</p>
+    <br>
+    <a href="/user/{{ user['id'] }}/edit">Edit</a> | <a href="/delete/{{ user['id'] }}">Delete</a>
+    {% endfor %}
+</body>
+</html>

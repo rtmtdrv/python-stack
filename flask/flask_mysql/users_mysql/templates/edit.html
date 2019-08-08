@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit User</title>
+</head>
+<body>
+    <span class="home"><a href="/users">Home</a></span>
+    <h1>Edit User</h1>
+    {% for user in user %}
+    <form action = "/edit_user/{{user['id']}}" method="POST">
+        <p>First Name: <input type="name" name="f_name" value="{{user['first_name']}}"></p>
+        <p>Last Name: <input type="name" name="l_name" value="{{user['last_name']}}"></p>
+        <p>Email: <input type="name" name="email" value="{{user['email']}}"></p>
+        <button>Edit</button>
+    </form>
+    <br>
+    <a href="/user/{{ user['id'] }}">Show</a> 
+    {% endfor %}
+    
+</body>
+</html>

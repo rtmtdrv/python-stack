@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Generator</title>
+</head>
+<body>
+    <div class="container">
+            <p>Random Word (attempt # {{request.session.counter}})</p>
+            <div class="number">{{ unique_id }}</div>
+            <br>
+            <form action="/create" method="POST">
+                {% csrf_token %}
+                <input name="generate" type="hidden">
+                <button type="submit">GENERATE</button>
+            </form>
+            <form action="/reset" method="POST">
+                {% csrf_token %}
+                <input name="reset" type="hidden">
+                <button type="submit">RESET</button>
+            </form>
+    </div>
+</body>
+</html>

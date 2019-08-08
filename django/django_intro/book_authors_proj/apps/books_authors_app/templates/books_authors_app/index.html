@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books/Authors</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+            margin: 10px 0px 0px 0px;
+            padding: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 900px;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .addbook {
+            display:inline-block;
+            background-color:#dddddd;
+            text-align: center;
+            width: 300px;
+            height: 275px;
+            border-radius: 10px;
+        }
+
+        .booktable {
+            display:inline-block;
+            width: 500px;
+            vertical-align: top;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="addbook">
+        <h1>Add a Book</h1>
+        <form action="/add" method="POST">
+        {% csrf_token %}
+        <p>Title:</p>
+        <input type="text" name="title"><br>
+        <p>Description:</p>
+        <input type="textarea" name="desc"><br><br>
+        <input type="submit" value="Add">
+        </form>
+    </div>
+    <div class="booktable">
+            <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Action</th>
+                    </tr>
+                    {% for book in all_books %}
+                    <tr>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title }}</td>
+                        <td><a href="/books/{{ book.id }}">View</a></td>
+                    </tr>
+                    {% endfor %}
+            </table>
+    </div>
+</div>
+    
+    
+</body>
+</html>

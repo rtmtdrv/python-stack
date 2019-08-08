@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add User</title>
+</head>
+<style>
+    body {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    }
+</style>
+<body>
+    <span class="home"><a href="/users">Home</a></span>
+    
+    <form action="/add_user" method="POST">
+        <p>First Name: <input type="text" name="fn_name"></p>
+        <p>Last Name: <input type="text" name="ln_name"></p>
+        <p>Email: <input type="text" name="email"></p>
+        <button>Add User</button>
+    </form>
+
+</body>
+</html>
